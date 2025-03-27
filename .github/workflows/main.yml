@@ -1,0 +1,20 @@
+name: Deploy HTML & CSS to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger the action when there is a push to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use a Linux runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # This action checks out your repository
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # The branch where your site will be deployed
+          folder: .  # Deploy all files from the root directory
